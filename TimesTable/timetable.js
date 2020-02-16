@@ -1,33 +1,28 @@
 const timeTableContainer = document.querySelector(".timeTableContainer"), 
-    quest = timeTableContainer.querySelector('.js-quest');
+    quest = timeTableContainer.querySelector('.js-quest'),
+    btn = document.getElementById("btn");
 const input = document.querySelector('input');
+const result = document.querySelector(".js-result");
 
 
-function result(){
-    while(true){
-        const randomA = Math.floor(Math.random() * 10)+1;   // 1 ~ 10 random num
-        const randomB = Math.floor(Math.random() * 10)+1;   // 1 ~ 10 random num
-        const comResult = randomA * randomB;   // computer answer
-        const userResult = input.value;
-        quest.innerText = `${randomA} x ${randomB} = ?`;
-        while(true){
-            // quest.innerText = `${randomA} x ${randomB} = ?`;
-            if (userResult === comResult){
-                alert('Next question');
-            }
-            else if(userResult !== comResult){
-                alert('Do it again');
-            }
-        }
-
+function exe(e){
+    e.preventDefault();
+    const userInput = parseInt(input.value);
+    
+    for(let a = 1; a < 10; ++a){
+        let multi = userInput * a;
+        result.innerText=`${userInput} x ${a} = ${multi}`;
     }
-    // quest.innerText = `${randomA} x ${randomB} = ?`;
-
+    
 }
-
-
 function init(){
-    result();
+    quest.innerText = "You want to select number (2 ~ 9)";
+    btn.addEventListener("click", exe);
 }
 
 init();
+
+for(let a = 1; a < 10; ++a){
+
+    console.log(a);
+}
