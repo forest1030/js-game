@@ -8,12 +8,13 @@ const result = document.querySelector(".js-result");
 function exe(e){
     e.preventDefault();
     const userInput = parseInt(input.value);
+    const text= "";
     
     for(let a = 1; a < 10; ++a){
-        let multi = userInput * a;
-        result.innerText=`${userInput} x ${a} = ${multi}`;
+        const multi = userInput * a;
+        result.innerText += `${userInput} x ${a} = ${multi}\n`
     }
-    
+    return text;
 }
 function init(){
     quest.innerText = "You want to select number (2 ~ 9)";
@@ -21,8 +22,3 @@ function init(){
 }
 
 init();
-
-for(let a = 1; a < 10; ++a){
-
-    console.log(a);
-}
